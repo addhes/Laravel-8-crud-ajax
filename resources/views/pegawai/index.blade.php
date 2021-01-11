@@ -44,10 +44,10 @@
                                     <tr id="sid{{ $hasil->id }}">
                                         <td> {{ $result + $list_pegawai->firstitem() }} </td>
                                         <td>{{ $hasil->nama }}</td>    
-                                        <td>{{ $hasil->bonus }} </td>
+                                        <td>@currency($hasil->bonus)</td>
                                         <td>
                                             <a href="#" class="btn btn-warning btn-edit" data-id="{{ $hasil->id }}">Edit</a>
-                                            <a href="javascript:void(0)" onclick="deletePegawai({{ $hasil->id }})" class="btn btn-danger btn-del">Delete</a>
+                                            <a href="#" onclick="deletePegawai({{ $hasil->id }})" class="btn btn-danger btn-del">Delete</a>
                                         </td>
                                     </tr>                     
                                     @endforeach
@@ -75,14 +75,27 @@
         <div class="modal-body">
           <form id="pegawaiForm">
               @csrf
-              <div class="form-group">
-                  <label for="nama">Nama</label>
-                  <input type="text" name="nama" id="nama">
+              <div class="form-group row">
+                  <label for="nama" class="col-sm-3 col-form-label">Pembayaran</label>
+                  <div class="col-sm-6">
+                    <input type="text" name="nama" id="nama" class="form-control">
+                  </div>
               </div>
-              <div class="form-group">
-                <label for="nama">Bonus</label>
-                <input type="number" name="bonus" id="bonus">
-            </div>              
+              <div class="form-group row">
+                <label for="bonus" class="col-sm-2 col-form-label">Buruh</label>
+                <div class="col-sm-7">
+                  <input type="number" name="bonus" id="bonus" class="form-control">
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <div class="col-sm-4">
+                    <a href="" class="addburuh btn btn-success">+</a>
+                  </div>
+
+                  <div class="buruh"></div>
+
+                </div>       
+            </div>       
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -92,5 +105,8 @@
       </div>
     </div>
   </div>            
+
+
+
 
 @include('template.footer');

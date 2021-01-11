@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pegawai extends Model
+class Pembayaran extends Model
 {
     use HasFactory;
-
-    protected $table = "pegawai";
+    
+    protected $table = "pembayaran";
 
     protected $fillable = [
-        'nama', 'bonus',
+        'bayar',
     ];
-
-    public function pembayaran(){
-        return $this->belongsToMany('App\Models\Pembayaran');
+    
+    public function pegawai(){
+        return $this->belongsToMany('App\Models\Pegawai');
     }
 }

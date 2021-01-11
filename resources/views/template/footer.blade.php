@@ -92,8 +92,8 @@
             if(confirm("Yakin datanya mau dihapus?"))
             {
                 $.ajax({
-                    url:'/pegawai/'+id
-                    type:'DELETE',
+                    url:'/pegawai/'+id,
+                    type: 'DELETE',
                     data:{
                         _token : $("input[name=_token]").val()
                     },
@@ -105,6 +105,43 @@
             }
         }
     </script>
+
+    <script>
+        $(document).ready(function(){
+            var count = 1;
+
+            dynamic_field(count);
+
+            function dynamic_field(number)
+            {
+                html = '<tr>';
+                html = '<td><input type="text" name"nama[]" class="form-control" /> </td>';
+                html = '<td><input type="text" name"nama[]" class="form-control" /> </td>';
+                if(number > 1)
+                {
+                    html += '<td><button type="button" name="remove" id="remove" class="btn btn-danger">+</button></td></tr>';
+                    $('form-group').append(html);
+                }
+                else
+                {
+                    html += '<td><button type="button" name="add" id="add" class="btn btn-success">-</button></td></tr>';
+                    $('form-group').html(html);
+                }
+            }
+
+            $('#add').click(function(){
+                count++;
+                dynamic_field(count);
+            });
+
+            $(document).on('click', '#remove', function(){
+                count--;
+                dynamic_field(count);
+            });
+        })
+    </script>
+
+    
 
 </body>
 
