@@ -84,6 +84,17 @@
                 }
             });
         });
+
+        $('.addburuh').on('click', function(){
+            addburuh();
+        });
+        function addburuh(){
+            var buruh = '<div><div class="form-group row"><label for="bonus" class="col-sm-2 col-form-label">Buruh</label><div class="col-sm-7"><input type="number" name="bonus" id="bonus" class="form-control"></div><div class="form-group row"><label class="col-sm-2 col-form-label"></label><div class="col-sm-4"><a href="" class="addburuh btn btn-success">+</a></div><div class="buruh"></div></div></div>';
+            $('.buruh').append(buruh);
+        };
+        $('.remove').click(function(){
+            $(this).parent().parent().parent().remove();
+        });
     </script>
 
     <script>
@@ -105,43 +116,6 @@
             }
         }
     </script>
-
-    <script>
-        $(document).ready(function(){
-            var count = 1;
-
-            dynamic_field(count);
-
-            function dynamic_field(number)
-            {
-                html = '<tr>';
-                html = '<td><input type="text" name"nama[]" class="form-control" /> </td>';
-                html = '<td><input type="text" name"nama[]" class="form-control" /> </td>';
-                if(number > 1)
-                {
-                    html += '<td><button type="button" name="remove" id="remove" class="btn btn-danger">+</button></td></tr>';
-                    $('form-group').append(html);
-                }
-                else
-                {
-                    html += '<td><button type="button" name="add" id="add" class="btn btn-success">-</button></td></tr>';
-                    $('form-group').html(html);
-                }
-            }
-
-            $('#add').click(function(){
-                count++;
-                dynamic_field(count);
-            });
-
-            $(document).on('click', '#remove', function(){
-                count--;
-                dynamic_field(count);
-            });
-        })
-    </script>
-
-    
 
 </body>
 
