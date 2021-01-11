@@ -76,25 +76,16 @@
           <form id="pegawaiForm">
               @csrf
               <div class="form-group row">
-                  <label for="nama" class="col-sm-3 col-form-label">Pembayaran</label>
+                  <label for="bonus" class="col-sm-3 col-form-label">Pembayaran</label>
                   <div class="col-sm-6">
-                    <input type="text" name="nama" id="nama" class="form-control">
+                    <input type="number" name="bonus" id="bonus" class="form-control">
                   </div>
               </div>
               <div class="form-group row">
-                <label for="bonus" class="col-sm-2 col-form-label">Buruh</label>
+                <label for="nama" class="col-sm-2 col-form-label">Buruh</label>
                 <div class="col-sm-7">
-                  <input type="number" name="bonus" id="bonus" class="form-control">
-                </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-4">
-                    <a href="" class="addburuh btn btn-success">+</a>
-                  </div>
-
-                  <div class="buruh"></div>
-
-                </div>       
+                  <input type="text" name="nama" id="nama" class="form-control">
+                </div>     
             </div>       
         </div>
         <div class="modal-footer">
